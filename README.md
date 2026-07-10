@@ -10,7 +10,7 @@
 This project is a **learning-focused variant** of
 [`app_mlops_car_prices`](https://github.com/kalyancn4u/app_mlops_car_prices): the same
 working pipeline, plus a gentle guide and a scaffold of **test stubs** for you to complete
-as you learn. It is one of a family of four repositories on the same Cars24 dataset:
+as you learn. It is one of the **Car Prices Quartet**, four repositories on the same Cars24 dataset:
 
 | Repo | What it is |
 | :--- | :--------- |
@@ -270,11 +270,11 @@ Each stub maps to a natural extension — hyper-parameter tuning (Optuna), exper
 > listings — decision support, not a guaranteed sale price.
 
 <sub>Built with scikit-learn · LightGBM · XGBoost · pandas · pyarrow. A learning-focused
-member of the `*_car_prices` family.</sub>
+member of the `*_car_prices` quartet.</sub>
 
 ---
 
-### 🔗 The Car Prices Family
+### 🔗 The Car Prices Quartet
 
 Four sibling projects built on the same Cars24 dataset:
 
