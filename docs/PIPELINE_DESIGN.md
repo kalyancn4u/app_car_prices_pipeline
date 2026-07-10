@@ -71,8 +71,8 @@ them against `config.KPI`. The result is written to `models/metrics.json` as
 The same artifact serves three shapes (the two siblings implement the first two):
 
 - **REST API** — wrap `car_pricing.predict.predict` in Flask/FastAPI + Docker + ECS.
-  See the sibling **`app_flask_car_prices`** for the exact pattern.
-- **Interactive UI** — a Streamlit front-end. See **`app_streamlit_car_prices`**.
+  See the sibling **`app_car_prices_flask`** for the exact pattern.
+- **Interactive UI** — a Streamlit front-end. See **`app_car_prices_streamlit`**.
 - **Batch** — `pipeline.predict(df)` over a table for nightly repricing.
 
 ## MLOps loop

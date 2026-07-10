@@ -22,7 +22,7 @@ by hardware, but the **ranking is stable**.
   raw CSV) *and* slow to write — good only for cold archival you rarely open.
 - **Best low-friction shrink for a git repo:** **`CSV + gzip`** — 5× smaller than
   raw CSV, reads just as fast, one command (`gzip -9 file.csv`), and pandas reads
-  it directly with no code change. (This is what the sibling `app_flask_car_prices`
+  it directly with no code change. (This is what the sibling `app_car_prices_flask`
   ships.)
 - **Best for real pipelines / larger data:** **Parquet** — nearly as small as gzip
   **and ~3–4× faster to read** than CSV, because it's *columnar* and stores each

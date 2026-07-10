@@ -1,4 +1,4 @@
-"""car_pricing — the production package behind app_mlops_car_prices.
+"""car_pricing — the production package behind app_car_prices_mlops.
 
 Public surface:
     from car_pricing import config, data, features, models

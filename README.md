@@ -8,16 +8,16 @@
 > plain-English tour of the whole project that assumes no prior background.
 
 This project is a **learning-focused variant** of
-[`app_mlops_car_prices`](https://github.com/kalyancn4u/app_mlops_car_prices): the same
+[`app_car_prices_mlops`](https://github.com/kalyancn4u/app_car_prices_mlops): the same
 working pipeline, plus a gentle guide and a scaffold of **test stubs** for you to complete
 as you learn. It is one of the **Car Prices Quartet**, four repositories on the same Cars24 dataset:
 
 | Repo | What it is |
 | :--- | :--------- |
-| `app_streamlit_car_prices` | An interactive Streamlit app |
-| `app_flask_car_prices` | A containerised Flask REST API (Docker + AWS ECS) |
-| `app_mlops_car_prices` | The full ML lifecycle, done properly and reproducibly |
-| **`app_pipeline_car_prices`** *(this repo)* | A **beginner-friendly starter** — the pipeline + guided docs + **test stubs to extend** |
+| `app_car_prices_streamlit` | An interactive Streamlit app |
+| `app_car_prices_flask` | A containerised Flask REST API (Docker + AWS ECS) |
+| `app_car_prices_mlops` | The full ML lifecycle, done properly and reproducibly |
+| **`app_car_prices_pipeline`** *(this repo)* | A **beginner-friendly starter** — the pipeline + guided docs + **test stubs to extend** |
 
 > **What's different here:** the working pipeline is unchanged from the MLOps sibling; what's
 > added is a [Beginner's Guide](docs/BEGINNERS_GUIDE.md) and a set of guided test stubs
@@ -185,7 +185,7 @@ copy for fast, type-safe reloads.
 ## 📁 Project structure
 
 ```
-app_pipeline_car_prices/
+app_car_prices_pipeline/
 ├── README.md
 ├── requirements.txt · pyproject.toml · Makefile · .gitignore
 ├── data/
@@ -278,7 +278,7 @@ member of the `*_car_prices` quartet.</sub>
 
 Four sibling projects built on the same Cars24 dataset:
 
-- 🎛️ **[Streamlit web app →](https://github.com/kalyancn4u/app_streamlit_car_prices)** — interactive price-predictor UI
-- 🐳 **[Flask REST API →](https://github.com/kalyancn4u/app_flask_car_prices)** — containerised API (Docker + AWS ECS/Fargate)
-- 🔬 **[MLOps lifecycle →](https://github.com/kalyancn4u/app_mlops_car_prices)** — full SDLC: notebooks → production pipeline
+- 🎛️ **[Streamlit web app →](https://github.com/kalyancn4u/app_car_prices_streamlit)** — interactive price-predictor UI
+- 🐳 **[Flask REST API →](https://github.com/kalyancn4u/app_car_prices_flask)** — containerised API (Docker + AWS ECS/Fargate)
+- 🔬 **[MLOps lifecycle →](https://github.com/kalyancn4u/app_car_prices_mlops)** — full SDLC: notebooks → production pipeline
 - 🛠️ **Pipeline starter** — beginner-friendly guide + test stubs to extend · _you are here_
