@@ -1,0 +1,20 @@
+{
+  "winner": "LightGBM",
+  "cv_best_model": "XGBoost",
+  "cv_best_mae_lakhs": 0.708,
+  "price_r2": 0.9568,
+  "price_mae_lakhs": 0.664,
+  "price_rmse_lakhs": 1.022,
+  "band_accuracy": 0.8582,
+  "fit_seconds": 0.97,
+  "n_train": 15856,
+  "n_test": 3964,
+  "n_features": 16,
+  "kpi_gate": {
+    "mae_ok": true,
+    "r2_ok": true,
+    "band_ok": true,
+    "all_pass": true
+  },
+  "artifact_mb": 0.92
+}

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+
+# Generated processed data (regenerate from data/raw via the pipeline).
+# The raw dataset and the small trained artifacts under models/ ARE committed
+# so a fresh clone can train and serve immediately.
+data/processed/*
+!data/processed/.gitkeep
