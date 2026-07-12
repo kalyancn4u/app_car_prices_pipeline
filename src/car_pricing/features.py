@@ -56,6 +56,7 @@ def price_to_band(prices, edges: List[float]) -> np.ndarray:
 
 
 def split_xy(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
+    """Split a cleaned DataFrame into the ordered feature matrix X and the target y."""
     return df[config.FEATURES].copy(), df[config.TARGET].copy()
 
 

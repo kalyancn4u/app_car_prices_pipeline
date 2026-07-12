@@ -29,12 +29,14 @@ _FLAG_MAP = {
 
 @lru_cache(maxsize=1)
 def _load():
+    """Load and cache the fitted pipeline and the serving metadata."""
     pipeline = joblib.load(config.PIPELINE_PATH)
     meta = json.loads(config.METADATA_PATH.read_text(encoding="utf-8"))
     return pipeline, meta
 
 
 def format_price(lakhs: float) -> str:
+    """Render a price (given in Lakhs) using Indian Crore/Lakh/Rupee notation."""
     if lakhs >= 100:
         return f"₹{lakhs / 100:.2f} Crore"
     if lakhs >= 1:

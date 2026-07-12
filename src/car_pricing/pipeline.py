@@ -15,6 +15,7 @@ from .features import build_preprocessor
 
 
 def make_pipeline(estimator: RegressorMixin) -> Pipeline:
+    """Build a Pipeline of the shared preprocessor followed by `estimator`."""
     return Pipeline([
         ("preprocess", build_preprocessor()),
         ("model", estimator),

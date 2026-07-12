@@ -261,6 +261,8 @@ Each stub maps to a natural extension — hyper-parameter tuning (Optuna), exper
 ## 📚 Documentation index
 
 - 🧑‍🎓 [`docs/BEGINNERS_GUIDE.md`](docs/BEGINNERS_GUIDE.md) — plain-English tour of the whole project (**start here**)
+- 📗 [`docs/API_EXAMPLES.md`](docs/API_EXAMPLES.md) — copy-paste usage recipes (runnable: [`notebooks/api_examples.ipynb`](notebooks/api_examples.ipynb))
+- 🧪 [`docs/TESTING_GUIDE.md`](docs/TESTING_GUIDE.md) — testing & debugging, novice → mastery
 - 💼 [`docs/BUSINESS_CASE.md`](docs/BUSINESS_CASE.md) — problem, value, KPIs, scope
 - 📖 [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) — every column, the baselines, cleaning
 - 🃏 [`docs/MODEL_CARD.md`](docs/MODEL_CARD.md) — the bake-off, selection, performance, limits

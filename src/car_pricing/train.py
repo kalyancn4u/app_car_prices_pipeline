@@ -33,6 +33,7 @@ except ImportError:  # pragma: no cover
 
 
 def _line(char: str = "-") -> None:
+    """Print a horizontal rule to the console."""
     print(char * 72)
 
 
@@ -75,6 +76,7 @@ def cross_validate_zoo(X_tr, y_tr) -> Dict[str, Dict[str, float]]:
 
 
 def main() -> Dict:
+    """Run training end-to-end: load -> split -> CV bake-off -> pick a servable winner -> evaluate against the KPI gate -> save artifacts."""
     _line("=")
     print("Car Price MLOps - training pipeline")
     _line("=")

@@ -54,6 +54,7 @@ def benchmark_formats(df: pd.DataFrame, out_dir: Path,
     out_dir.mkdir(parents=True, exist_ok=True)
 
     def _time_read(reader: Callable, path: Path) -> float:
+        """Return the fastest of `reads` timed calls to `reader(path)`, in seconds."""
         best = float("inf")
         for _ in range(reads):
             t = time.perf_counter()
@@ -87,6 +88,7 @@ def benchmark_formats(df: pd.DataFrame, out_dir: Path,
 
 # --- Cleaning --------------------------------------------------------------
 def load_raw() -> pd.DataFrame:
+    """Read the raw (gzip-compressed) dataset into a DataFrame."""
     return pd.read_csv(config.DATA_RAW)
 
 
