@@ -242,11 +242,15 @@ This starter is meant to be *finished by you*. Two on-ramps:
 
    | Group | Example stub | Skill it builds |
    | :---- | :----------- | :-------------- |
-   | Data | cleaning drops invalid rows | pandas basics |
-   | Features | target encoding adds no leakage | preprocessing |
-   | Serving | an unknown make/model is rejected | error handling |
-   | Modelling | a tuned model beats the baseline | hyper-parameter search |
-   | Monitoring | drift is flagged on shifted data | the "pending" MLOps stages |
+   | 🟢 Data | cleaning drops invalid rows | pandas basics |
+   | 🟡 Features | target encoding adds no leakage | preprocessing |
+   | 🟠 Serving | an unknown make/model is rejected | error handling |
+   | 🔴 Modelling | a tuned model beats the baseline | hyper-parameter search |
+   | 🟣 Mastery | parametrized cases + domain properties | professional testing |
+   | 🐞 Debugging | turn a real past bug into a regression test | the core debugging loop |
+
+   📖 New to testing entirely? **[`docs/TESTING_GUIDE.md`](docs/TESTING_GUIDE.md)** teaches it
+   from "what is a test?" through debugging and troubleshooting.
 
 Each stub maps to a natural extension — hyper-parameter tuning (Optuna), experiment tracking
 (MLflow), drift detection (Evidently), a REST/Streamlit serving layer, or a CI workflow.

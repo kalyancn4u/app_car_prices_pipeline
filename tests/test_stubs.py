@@ -148,3 +148,40 @@ def test_predictions_are_logged_for_monitoring():
     file), then assert a line is written and round-trips back to the same values.
     """
     pytest.fail("TODO: add prediction logging, then this test")
+
+
+# ===========================================================================
+# GROUP 6 · 🟣 Mastery  (parametrize + properties)
+# ===========================================================================
+
+@pytest.mark.parametrize("make,model,floor", [
+    ("MARUTI", "SWIFT VXI", 1.0),
+    ("BMW", "X5", 8.0),
+])
+@pytest.mark.skip(reason=TODO)
+def test_predictions_exceed_floor(make, model, floor):
+    """Parametrized: `predict({...})['predicted_price_lakhs']` should exceed `floor` for
+    each car. One test body, many cases — the professional way to cover many inputs
+    without copy-pasting the test."""
+    pytest.fail("TODO: implement this test")
+
+
+@pytest.mark.skip(reason=TODO)
+def test_property_band_interval_contains_the_price():
+    """A *property* that must always hold: the returned `price_band`'s rupee interval
+    should contain the predicted price. Compute `edges = features.band_edges(y)`, predict a
+    few cars, and assert each price falls inside its band's [low, high)."""
+    pytest.fail("TODO: implement this test")
+
+
+# ===========================================================================
+# 🐞 Debugging drills  (turn REAL project history into regression tests)
+# ===========================================================================
+
+@pytest.mark.skip(reason=TODO)
+def test_regression_shipped_model_is_servable():
+    """History (docs/XGBOOST_SERVABILITY.md): a model couldn't `.predict()` inside a
+    scikit-learn Pipeline on some library-version combos. Write the guard that catches a
+    re-break: `joblib.load('models/price_pipeline.pkl')` and assert `.predict(X)` works on
+    a small sample. Turning a fixed bug into a test is the core of debugging."""
+    pytest.fail("TODO: implement this test")
