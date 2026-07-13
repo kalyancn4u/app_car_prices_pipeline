@@ -31,13 +31,14 @@ as you learn. It is one of the **Car Prices Quartet**, four repositories on the 
 1. [Headline results](#-headline-results)
 2. [The lifecycle (notebooks)](#-the-lifecycle-notebooks)
 3. [Quick start](#-quick-start)
-4. [How the pipeline works](#-how-the-pipeline-works)
-5. [Model comparison (DT vs RF vs XGBoost vs LightGBM)](#-model-comparison-dt-vs-rf-vs-xgboost-vs-lightgbm)
-6. [Data formats: CSV vs Parquet vs Feather](#-data-formats-csv-vs-parquet-vs-feather)
-7. [Project structure](#-project-structure)
-8. [How it compares to the sibling projects](#-how-it-compares-to-the-sibling-projects)
-9. [Your turn: extend the project](#-your-turn-extend-the-project)
-10. [Documentation index](#-documentation-index)
+4. [Reproducible rebuilds & the Python-version policy](#-reproducible-rebuilds--the-python-version-policy)
+5. [How the pipeline works](#-how-the-pipeline-works)
+6. [Model comparison (DT vs RF vs XGBoost vs LightGBM)](#-model-comparison-dt-vs-rf-vs-xgboost-vs-lightgbm)
+7. [Data formats: CSV vs Parquet vs Feather](#-data-formats-csv-vs-parquet-vs-feather)
+8. [Project structure](#-project-structure)
+9. [How it compares to the sibling projects](#-how-it-compares-to-the-sibling-projects)
+10. [Your turn: extend the project](#-your-turn-extend-the-project)
+11. [Documentation index](#-documentation-index)
 
 ---
 
@@ -104,6 +105,56 @@ Example output:
 
 ```python
 {'predicted_price_lakhs': 5.74, 'predicted_price_display': '₹5.74 Lakhs', 'price_band': 'Medium'}
+```
+
+---
+
+## 🔁 Reproducible rebuilds & the Python-version policy
+
+The shipped model is a **pickled** scikit-learn `Pipeline`, and a pickle only
+loads under the *same* library versions it was saved with — a newer
+scikit-learn raises `InconsistentVersionWarning` and then an `AttributeError` at
+load time. The [`Makefile`](Makefile) removes that risk by making the
+environment that **trains** the pipeline the very same one that **pins** the
+dependencies.
+
+```bash
+make rebuild      # fresh conda env -> train -> verify it predicts -> re-pin
+make push         # commit the retrained model + refreshed pins, then push
+make help         # your existing setup/train/test/predict targets still work
+```
+
+`make rebuild` runs `env -> train -> verify -> freeze`:
+
+- **env** creates a conda env on **Python 3.11** and installs `requirements.txt`
+  plus the package itself (`pip install -e .`).
+- **train** runs `python -m car_pricing.train` (the bake-off + KPI-gated save).
+- **verify** runs a real `predict(...)`, proving the artifact both *unpickles
+  and infers*.
+- **freeze** calls [`tools/pin_env.py`](tools/pin_env.py) to rewrite
+  `requirements.txt` (comments preserved) and `.python-version` to the exact
+  versions that just produced `models/price_pipeline.pkl` — so the pins can
+  never drift from the artifact.
+
+### Why Python 3.11?
+
+`numpy==1.26.x` / `scikit-learn==1.6.x` publish wheels only for **Python
+3.9–3.12**, so this project standardises on **3.11** (which also keeps it in
+step with its Dockerised sibling projects). On 3.11 every pin installs from a
+prebuilt wheel and the committed model loads unchanged.
+
+> ⚠️ **Do not** pair the current pins with Python 3.13/3.14 — numpy 1.26 has no
+> wheel there and the install fails outright. It's a contradiction, not a tweak.
+
+### If you ever need Python 3.13+
+
+Upgrade the whole stack and **retrain** (newer numpy 2.x ⇒ newer scikit-learn ⇒
+a new `.pkl`). First confirm `xgboost` and `lightgbm` publish 3.13 wheels, then:
+
+```bash
+# Drop the ==... pins on the core libs in requirements.txt, then:
+make rebuild PYVER=3.13   # a fresh 3.13 env installs the latest compatible set
+make freeze               # recapture the resolved versions + .python-version
 ```
 
 ---
